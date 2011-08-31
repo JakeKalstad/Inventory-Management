@@ -1,0 +1,42 @@
+﻿<#@ template language="C#" debug="true" hostSpecific="true" #>
+<#@ output extension=".cs" #>
+<#@ Assembly Name="System.Core.dll" #>
+<#@ Assembly Name="System.Windows.Forms.dll" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Windows" #>
+<#@ import namespace="System.Windows.Forms" #>
+<#@ import namespace="System.Reflection" #>
+<#@ import namespace="System.Collections.Generic" #> 
+<#@include file="extend.ttinclude" #>
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Windows.Forms;
+
+namespace SupplyDispense.Extensions
+{
+
+public static class <#=typeof(Button).Name#>Extensions 
+{
+	<# 	GenerateEventGetters(typeof(Button)); #>
+}
+
+public static class <#=typeof(TextBox).Name#>Extensions 
+{
+	<# 	GenerateEventGetters(typeof(TextBox)); #>
+}
+
+public static class <#=typeof(PictureBox).Name#>Extensions 
+{
+	<# 	GenerateEventGetters(typeof(PictureBox)); #>
+}
+
+public static class <#=typeof(UserControl).Name#>Extensions 
+{
+	<# 	GenerateEventGetters(typeof(UserControl)); #>
+}
+
+}

@@ -1,0 +1,588 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7E2BD7B1-5D78-40A3-9456-84DA64AB3985}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SupplyDispense</RootNamespace>
+    <AssemblyName>SupplyDispense</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Controller\AdjustController.cs" />
+    <Compile Include="Controller\AssignItemController.cs" />
+    <Compile Include="Controller\BaseController.cs" />
+    <Compile Include="Controller\DeleteItemController.cs" />
+    <Compile Include="Controller\Interface\IController.cs" />
+    <Compile Include="Controller\InventoryCountController.cs" />
+    <Compile Include="Controller\InventoryLandingController.cs" />
+    <Compile Include="Controller\LoginController.cs" />
+    <Compile Include="Controller\MainMenuController.cs" />
+    <Compile Include="Controller\ConfigurationLandingController.cs" />
+    <Compile Include="Controller\RemoveItemController.cs" />
+    <Compile Include="Controller\RestockController.cs" />
+    <Compile Include="Controller\RestockHistoryController.cs" />
+    <Compile Include="Controller\ReturnItemController.cs" />
+    <Compile Include="Controller\UserConfigController.cs" />
+    <Compile Include="Core\SheetMap.cs" />
+    <Compile Include="Core\Spinner.cs" />
+    <Compile Include="CurrentUser.cs" />
+    <Compile Include="Enum\OptionsType.cs" />
+    <Compile Include="Enum\Sheets.cs" />
+    <Compile Include="Enum\RuleResult.cs" />
+    <Compile Include="Extensions\FactoryExtension.cs" />
+    <Compile Include="Extensions\KernelExtensions.cs" />
+    <Compile Include="Extensions\ObservableExtension.cs" />
+    <Compile Include="Extensions\ControlExtension.cs" />
+    <Compile Include="Factory\DialogFactory.cs" />
+    <Compile Include="Factory\Interface\IDialogFactory.cs" />
+    <Compile Include="Interface\ISpinner.cs" />
+    <Compile Include="Master.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Master.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Base\ModelBase.cs" />
+    <Compile Include="Model\Interface\IAssignItem.cs" />
+    <Compile Include="Model\Interface\IConfigurationModel.cs" />
+    <Compile Include="Model\Interface\IInventoryLandingModel.cs" />
+    <Compile Include="Model\Interface\ILoginModel.cs" />
+    <Compile Include="Model\Interface\IMainMenuModel.cs" />
+    <Compile Include="Model\Interface\IObservableModel.cs" />
+    <Compile Include="Model\SheetModel\AdjustReorderModel.cs" />
+    <Compile Include="Model\SheetModel\AssignItemModel.cs" />
+    <Compile Include="Model\SheetModel\ConfigurationModel.cs" />
+    <Compile Include="Model\SheetModel\DeleteItem.cs" />
+    <Compile Include="Model\SheetModel\InventoryCountModel.cs" />
+    <Compile Include="Model\SheetModel\InventoryLandingModel.cs" />
+    <Compile Include="Model\SheetModel\LoginModel.cs" />
+    <Compile Include="Model\SheetModel\MainMenuModel.cs" />
+    <Compile Include="Model\SheetModel\RemoveItemModel.cs" />
+    <Compile Include="Model\SheetModel\RestockHistoryModel.cs" />
+    <Compile Include="Model\SheetModel\RestockModel.cs" />
+    <Compile Include="Model\SheetModel\ReturnItemModel.cs" />
+    <Compile Include="Model\SheetModel\UserConfigModel.cs" />
+    <Compile Include="Model\SubModel\DisplayableItem.cs" />
+    <Compile Include="Model\SubModel\DisplayUser.cs" />
+    <Compile Include="Model\SubModel\RestockHistoryRowModel.cs" />
+    <Compile Include="Model\SubModel\ShiftableItem.cs" />
+    <Compile Include="Model\SubModel\ShifterModel.cs" />
+    <Compile Include="Model\SubModel\TransactionModel.cs" />
+    <Compile Include="Model\SubModel\UserRowModel.cs" />
+    <Compile Include="Model\SubModel\UserType.cs" />
+    <Compile Include="Model\SubModel\ZoomableItem.cs" />
+    <Compile Include="Modules\AdjustModule.cs" />
+    <Compile Include="Modules\AssignItemModule.cs" />
+    <Compile Include="Modules\Core.cs" />
+    <Compile Include="Modules\DeleteItemModule.cs" />
+    <Compile Include="Modules\DomainModule.cs" />
+    <Compile Include="Modules\InventoryModule.cs" />
+    <Compile Include="Modules\InventoryCountModule.cs" />
+    <Compile Include="Modules\LoginModule.cs" />
+    <Compile Include="Modules\MainMenuModule.cs" />
+    <Compile Include="Modules\RemoveItemModule.cs" />
+    <Compile Include="Modules\RestockHistoryModule.cs" />
+    <Compile Include="Modules\RestockModule.cs" />
+    <Compile Include="Modules\ReturnItemModule.cs" />
+    <Compile Include="Modules\SupplyKernel.cs" />
+    <Compile Include="Modules\ConfigurationModule.cs" />
+    <Compile Include="Extensions\react.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>react.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\UserConfigModule.cs" />
+    <Compile Include="Runner.cs" />
+    <Compile Include="Service\Authenticate\Authenticate.cs" />
+    <Compile Include="Service\Core\Printer.cs" />
+    <Compile Include="Service\Encryption\Encryptor.cs" />
+    <Compile Include="Service\Interface\IAuthenticate.cs" />
+    <Compile Include="Service\Interface\IChangePassword.cs" />
+    <Compile Include="Service\Interface\IConnectionInfo.cs" />
+    <Compile Include="Service\Interface\ICreateUser.cs" />
+    <Compile Include="Service\Interface\IDeleteItem.cs" />
+    <Compile Include="Service\Interface\IFetchItems.cs" />
+    <Compile Include="Service\Interface\IFetchLocations.cs" />
+    <Compile Include="Service\Interface\IFetchRestockHistory.cs" />
+    <Compile Include="Service\Interface\IFetchUsers.cs" />
+    <Compile Include="Service\Interface\INetworkInfo.cs" />
+    <Compile Include="Service\Interface\IPrinter.cs" />
+    <Compile Include="Service\Interface\ISave.cs" />
+    <Compile Include="Service\Interface\ISaveAssignedItem.cs" />
+    <Compile Include="Service\Interface\IUpdateQuantity.cs" />
+    <Compile Include="Service\Item\DeleteItem.cs" />
+    <Compile Include="Service\Item\FetchItems.cs" />
+    <Compile Include="Service\Item\SaveAssignedItem.cs" />
+    <Compile Include="Service\Item\UpdateQuantity.cs" />
+    <Compile Include="Service\Location\FetchLocations.cs" />
+    <Compile Include="Service\Network\ConnectionInfo.cs" />
+    <Compile Include="Service\Network\NetworkInfo.cs" />
+    <Compile Include="Service\RestockHistory\FetchRestockHistory.cs" />
+    <Compile Include="Service\Save\BaseSave.cs" />
+    <Compile Include="Service\User\ChangePassword.cs" />
+    <Compile Include="Service\User\CreateUser.cs" />
+    <Compile Include="Service\User\FetchUsers.cs" />
+    <Compile Include="Service\User\UserRoles.cs" />
+    <Compile Include="View\Control\AssignItemControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Control\AssignItemControl.Designer.cs">
+      <DependentUpon>AssignItemControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Control\ConnectionInfoControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Control\ConnectionInfoControl.Designer.cs">
+      <DependentUpon>ConnectionInfoControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Control\CreateUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Control\CreateUserControl.Designer.cs">
+      <DependentUpon>CreateUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Control\DataShifter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Control\DataShifter.Designer.cs">
+      <DependentUpon>DataShifter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Control\DefaultOptionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Control\DefaultOptionControl.Designer.cs">
+      <DependentUpon>DefaultOptionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Control\InventoryControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Control\InventoryControl.Designer.cs">
+      <DependentUpon>InventoryControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Control\ItemRow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Control\ItemRow.Designer.cs">
+      <DependentUpon>ItemRow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Control\LoginControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Control\LoginControl.Designer.cs">
+      <DependentUpon>LoginControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Control\MainMenuControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Control\MainMenuControl.Designer.cs">
+      <DependentUpon>MainMenuControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Control\PrintScreenOnly.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Control\PrintScreenOnly.Designer.cs">
+      <DependentUpon>PrintScreenOnly.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Control\RestockHistoryRow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Control\RestockHistoryRow.Designer.cs">
+      <DependentUpon>RestockHistoryRow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Control\ShiftableRow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Control\ShiftableRow.Designer.cs">
+      <DependentUpon>ShiftableRow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Control\TransactionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Control\TransactionControl.Designer.cs">
+      <DependentUpon>TransactionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Control\ConfigurationLandingControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Control\ConfigurationLandingControl.Designer.cs">
+      <DependentUpon>ConfigurationLandingControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Control\UserRow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Control\UserRow.Designer.cs">
+      <DependentUpon>UserRow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Control\ZoomableItemRow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Control\ZoomableItemRow.Designer.cs">
+      <DependentUpon>ZoomableItemRow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Dialog\AboutDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Dialog\AboutDialog.Designer.cs">
+      <DependentUpon>AboutDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Dialog\AddUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Dialog\AddUser.Designer.cs">
+      <DependentUpon>AddUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Dialog\AdjustReorderPoint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Dialog\AdjustReorderPoint.Designer.cs">
+      <DependentUpon>AdjustReorderPoint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Dialog\ItemCount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Dialog\ItemCount.Designer.cs">
+      <DependentUpon>ItemCount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Dialog\PasswordReset.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Dialog\PasswordReset.Designer.cs">
+      <DependentUpon>PasswordReset.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Dialog\PasswordResetWarning.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Dialog\PasswordResetWarning.Designer.cs">
+      <DependentUpon>PasswordResetWarning.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Dialog\PromptDelete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Dialog\PromptDelete.Designer.cs">
+      <DependentUpon>PromptDelete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Dialog\QuantityRestock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Dialog\QuantityRestock.Designer.cs">
+      <DependentUpon>QuantityRestock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Dialog\TransactionRecorded.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Dialog\TransactionRecorded.Designer.cs">
+      <DependentUpon>TransactionRecorded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Interface\IDialog.cs" />
+    <Compile Include="View\Interface\IForm.cs" />
+    <Compile Include="View\Interface\IObservableControl.cs" />
+    <Compile Include="View\Interface\ISheet.cs" />
+    <Compile Include="View\Interface\ISupplyDispenseControl.cs" />
+    <Compile Include="View\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sheet\DeleteItemSheet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Sheet\DeleteItemSheet.Designer.cs">
+      <DependentUpon>DeleteItemSheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sheet\AssignItemSheet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Sheet\AssignItemSheet.Designer.cs">
+      <DependentUpon>AssignItemSheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sheet\BaseSheet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Sheet\AdjustReorder.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Sheet\AdjustReorder.Designer.cs">
+      <DependentUpon>AdjustReorder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sheet\InventoryCountSheet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Sheet\InventoryCountSheet.Designer.cs">
+      <DependentUpon>InventoryCountSheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sheet\InventoryLandingSheet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Sheet\InventoryLandingSheet.Designer.cs">
+      <DependentUpon>InventoryLandingSheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sheet\LoginSheet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Sheet\LoginSheet.Designer.cs">
+      <DependentUpon>LoginSheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sheet\MainMenuSheet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Sheet\MainMenuSheet.Designer.cs">
+      <DependentUpon>MainMenuSheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sheet\ConfigurationLandingSheet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Sheet\ConfigurationLandingSheet.Designer.cs">
+      <DependentUpon>ConfigurationLandingSheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sheet\RemoveItemSheet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Sheet\RemoveItemSheet.Designer.cs">
+      <DependentUpon>RemoveItemSheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sheet\RestockHistorySheet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Sheet\RestockHistorySheet.Designer.cs">
+      <DependentUpon>RestockHistorySheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sheet\RestockSheet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Sheet\RestockSheet.Designer.cs">
+      <DependentUpon>RestockSheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sheet\ReturnItemSheet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Sheet\ReturnItemSheet.Designer.cs">
+      <DependentUpon>ReturnItemSheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sheet\UserConfigSheet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Sheet\UserConfigSheet.Designer.cs">
+      <DependentUpon>UserConfigSheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Startup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Startup.Designer.cs">
+      <DependentUpon>Startup.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Ninject">
+      <HintPath>..\EduEva\EduEva\bin\Debug\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.CoreEx, Version=1.0.2838.104, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Reactive, Version=1.0.2838.104, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="Properties\DataSources\SupplyDispense.Model.AssignItemModel.datasource" />
+    <None Include="Properties\DataSources\SupplyDispense.Model.DisplayableItem.datasource" />
+    <None Include="Properties\DataSources\SupplyDispense.Model.DisplayUser.datasource" />
+    <None Include="Properties\DataSources\SupplyDispense.Model.LoginModel.datasource" />
+    <None Include="Extensions\extend.ttinclude" />
+    <None Include="Extensions\react.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>react.cs</LastGenOutput>
+    </None>
+    <None Include="Properties\DataSources\SupplyDispense.Model.RestockHistoryRowModel.datasource" />
+    <None Include="Properties\DataSources\SupplyDispense.Model.ShiftableItem.datasource" />
+    <None Include="Properties\DataSources\SupplyDispense.Model.ShifterModel.datasource" />
+    <None Include="Properties\DataSources\SupplyDispense.Model.SubModel.TransactionModel.datasource" />
+    <None Include="Properties\DataSources\SupplyDispense.Model.UserRow.datasource" />
+    <None Include="Properties\DataSources\SupplyDispense.View.Dialog.AdjustModel.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Master.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Master.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Control\AssignItemControl.resx">
+      <DependentUpon>AssignItemControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Control\ConnectionInfoControl.resx">
+      <DependentUpon>ConnectionInfoControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Control\CreateUserControl.resx">
+      <DependentUpon>CreateUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Control\DataShifter.resx">
+      <DependentUpon>DataShifter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Control\DefaultOptionControl.resx">
+      <DependentUpon>DefaultOptionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Control\InventoryControl.resx">
+      <DependentUpon>InventoryControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Control\ItemRow.resx">
+      <DependentUpon>ItemRow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Control\LoginControl.resx">
+      <DependentUpon>LoginControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Control\MainMenuControl.resx">
+      <DependentUpon>MainMenuControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Control\PrintScreenOnly.resx">
+      <DependentUpon>PrintScreenOnly.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Control\RestockHistoryRow.resx">
+      <DependentUpon>RestockHistoryRow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Control\ShiftableRow.resx">
+      <DependentUpon>ShiftableRow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Control\TransactionControl.resx">
+      <DependentUpon>TransactionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Control\ConfigurationLandingControl.resx">
+      <DependentUpon>ConfigurationLandingControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Control\UserRow.resx">
+      <DependentUpon>UserRow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Control\ZoomableItemRow.resx">
+      <DependentUpon>ZoomableItemRow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Dialog\AboutDialog.resx">
+      <DependentUpon>AboutDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Dialog\AddUser.resx">
+      <DependentUpon>AddUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Dialog\AdjustReorderPoint.resx">
+      <DependentUpon>AdjustReorderPoint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Dialog\ItemCount.resx">
+      <DependentUpon>ItemCount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Dialog\PasswordReset.resx">
+      <DependentUpon>PasswordReset.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Dialog\PasswordResetWarning.resx">
+      <DependentUpon>PasswordResetWarning.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Dialog\PromptDelete.resx">
+      <DependentUpon>PromptDelete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Dialog\QuantityRestock.resx">
+      <DependentUpon>QuantityRestock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Dialog\TransactionRecorded.resx">
+      <DependentUpon>TransactionRecorded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Sheet\DeleteItemSheet.resx">
+      <DependentUpon>DeleteItemSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Sheet\AssignItemSheet.resx">
+      <DependentUpon>AssignItemSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Sheet\BaseSheet.resx">
+      <DependentUpon>BaseSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Sheet\AdjustReorder.resx">
+      <DependentUpon>AdjustReorder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Sheet\InventoryCountSheet.resx">
+      <DependentUpon>InventoryCountSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Sheet\InventoryLandingSheet.resx">
+      <DependentUpon>InventoryLandingSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Sheet\LoginSheet.resx">
+      <DependentUpon>LoginSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Sheet\MainMenuSheet.resx">
+      <DependentUpon>MainMenuSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Sheet\ConfigurationLandingSheet.resx">
+      <DependentUpon>ConfigurationLandingSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Sheet\RemoveItemSheet.resx">
+      <DependentUpon>RemoveItemSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Sheet\RestockHistorySheet.resx">
+      <DependentUpon>RestockHistorySheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Sheet\RestockSheet.resx">
+      <DependentUpon>RestockSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Sheet\ReturnItemSheet.resx">
+      <DependentUpon>ReturnItemSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Sheet\UserConfigSheet.resx">
+      <DependentUpon>UserConfigSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Startup.resx">
+      <DependentUpon>Startup.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{F0D90AA3-0E23-4773-A546-C61B4ADEBDC3}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

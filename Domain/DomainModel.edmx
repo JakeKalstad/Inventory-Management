@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="supplyModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.1" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="supplyModelStoreContainer">
+          <EntitySet Name="item" EntityType="supplyModel.Store.item" store:Type="Tables" Schema="supply" />
+          <EntitySet Name="itemlookup" EntityType="supplyModel.Store.itemlookup" store:Type="Tables" Schema="supply" />
+          <EntitySet Name="location" EntityType="supplyModel.Store.location" store:Type="Tables" Schema="supply" />
+          <EntitySet Name="restockhistory" EntityType="supplyModel.Store.restockhistory" store:Type="Tables" Schema="supply" />
+          <EntitySet Name="user" EntityType="supplyModel.Store.user" store:Type="Tables" Schema="supply" />
+          <EntitySet Name="usertype" EntityType="supplyModel.Store.usertype" store:Type="Tables" Schema="supply" />
+        </EntityContainer>
+        <EntityType Name="item">
+          <Key>
+            <PropertyRef Name="ItemPKey" />
+          </Key>
+          <Property Name="Description" Type="text" Nullable="false" />
+          <Property Name="Id" Type="text" Nullable="false" />
+          <Property Name="ItemPKey" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Quantity" Type="uint" Nullable="false" />
+          <Property Name="RestockPoint" Type="varchar" Nullable="false" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="itemlookup">
+          <Key>
+            <PropertyRef Name="LookUpPkey" />
+          </Key>
+          <Property Name="ItemKey" Type="uint" Nullable="false" />
+          <Property Name="LocationKey" Type="uint" Nullable="false" />
+          <Property Name="LookUpPkey" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="location">
+          <Key>
+            <PropertyRef Name="LocationPKey" />
+          </Key>
+          <Property Name="LocationPKey" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="restockhistory">
+          <Key>
+            <PropertyRef Name="Key" />
+          </Key>
+          <Property Name="Key" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PointName" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="StockDate" Type="datetime" Nullable="false" />
+          <Property Name="UserKey" Type="uint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="PKey" />
+          </Key>
+          <Property Name="Id" Type="varchar" Nullable="false" MaxLength="45" />
+          <Property Name="Name" Type="text" Nullable="false" />
+          <Property Name="NeedsReset" Type="bool" Nullable="false" />
+          <Property Name="Password" Type="text" />
+          <Property Name="PKey" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserType" Type="uint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="usertype">
+          <Key>
+            <PropertyRef Name="PKey" />
+          </Key>
+          <Property Name="Display" Type="text" Nullable="false" />
+          <Property Name="Key" Type="uint" Nullable="false" />
+          <Property Name="PKey" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="supplyModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="supplyEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="items" EntityType="supplyModel.item" />
+          <EntitySet Name="itemlookups" EntityType="supplyModel.itemlookup" />
+          <EntitySet Name="locations" EntityType="supplyModel.location" />
+          <EntitySet Name="users" EntityType="supplyModel.user" />
+          <EntitySet Name="usertypes" EntityType="supplyModel.usertype" />
+          <EntitySet Name="restockhistories" EntityType="supplyModel.restockhistory" />
+        </EntityContainer>
+        <EntityType Name="item">
+          <Key>
+            <PropertyRef Name="ItemPKey" />
+          </Key>
+          <Property Type="String" Name="Description" Nullable="false" />
+          <Property Type="String" Name="Id" Nullable="false" />
+          <Property Type="Int64" Name="ItemPKey" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int64" Name="Quantity" Nullable="false" />
+          <Property Type="String" Name="RestockPoint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="itemlookup">
+          <Key>
+            <PropertyRef Name="LookUpPkey" />
+          </Key>
+          <Property Type="Int64" Name="ItemKey" Nullable="false" />
+          <Property Type="Int64" Name="LocationKey" Nullable="false" />
+          <Property Type="Int64" Name="LookUpPkey" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="location">
+          <Key>
+            <PropertyRef Name="LocationPKey" />
+          </Key>
+          <Property Type="Int64" Name="LocationPKey" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="PKey" />
+          </Key>
+          <Property Type="String" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <Property Type="String" Name="Password" Nullable="true" />
+          <Property Type="Int64" Name="PKey" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int64" Name="UserType" Nullable="false" />
+          <Property Type="Boolean" Name="NeedsReset" Nullable="false" />
+        </EntityType>
+        <EntityType Name="usertype">
+          <Key>
+            <PropertyRef Name="PKey" />
+          </Key>
+          <Property Type="String" Name="Display" Nullable="false" />
+          <Property Type="Int64" Name="Key" Nullable="false" />
+          <Property Type="Int64" Name="PKey" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="restockhistory">
+          <Key>
+            <PropertyRef Name="Key" />
+          </Key>
+          <Property Type="Int64" Name="Key" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="PointName" Nullable="false" />
+          <Property Type="DateTime" Name="StockDate" Nullable="false" />
+          <Property Type="Int64" Name="UserKey" Nullable="false" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="supplyModelStoreContainer" CdmEntityContainer="supplyEntities">
+          <EntitySetMapping Name="items">
+            <EntityTypeMapping TypeName="supplyModel.item">
+              <MappingFragment StoreEntitySet="item">
+                <ScalarProperty Name="RestockPoint" ColumnName="RestockPoint" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="ItemPKey" ColumnName="ItemPKey" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="itemlookups">
+            <EntityTypeMapping TypeName="supplyModel.itemlookup">
+              <MappingFragment StoreEntitySet="itemlookup">
+                <ScalarProperty Name="LookUpPkey" ColumnName="LookUpPkey" />
+                <ScalarProperty Name="LocationKey" ColumnName="LocationKey" />
+                <ScalarProperty Name="ItemKey" ColumnName="ItemKey" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="locations">
+            <EntityTypeMapping TypeName="supplyModel.location">
+              <MappingFragment StoreEntitySet="location">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="LocationPKey" ColumnName="LocationPKey" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="supplyModel.user">
+              <MappingFragment StoreEntitySet="user">
+                <ScalarProperty Name="NeedsReset" ColumnName="NeedsReset" />
+                <ScalarProperty Name="UserType" ColumnName="UserType" />
+                <ScalarProperty Name="PKey" ColumnName="PKey" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usertypes">
+            <EntityTypeMapping TypeName="supplyModel.usertype">
+              <MappingFragment StoreEntitySet="usertype">
+                <ScalarProperty Name="PKey" ColumnName="PKey" />
+                <ScalarProperty Name="Key" ColumnName="Key" />
+                <ScalarProperty Name="Display" ColumnName="Display" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="restockhistories">
+            <EntityTypeMapping TypeName="supplyModel.restockhistory">
+              <MappingFragment StoreEntitySet="restockhistory">
+                <ScalarProperty Name="UserKey" ColumnName="UserKey" />
+                <ScalarProperty Name="StockDate" ColumnName="StockDate" />
+                <ScalarProperty Name="PointName" ColumnName="PointName" />
+                <ScalarProperty Name="Key" ColumnName="Key" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="DomainModel">
+        <EntityTypeShape EntityType="supplyModel.item" Width="1.5" PointX="0.75" PointY="0.75" Height="1.7879850260416665" />
+        <EntityTypeShape EntityType="supplyModel.itemlookup" Width="1.5" PointX="2.75" PointY="0.75" Height="1.5956835937499996" />
+        <EntityTypeShape EntityType="supplyModel.location" Width="1.5" PointX="0.75" PointY="3.75" Height="1.4033821614583317" />
+        <EntityTypeShape EntityType="supplyModel.user" Width="1.5" PointX="2.75" PointY="3.75" Height="1.9802864583333317" />
+        <EntityTypeShape EntityType="supplyModel.usertype" Width="1.5" PointX="4.875" PointY="0.75" Height="1.59568359375" />
+        <EntityTypeShape EntityType="supplyModel.restockhistory" Width="1.5" PointX="5.125" PointY="3.75" Height="1.787985026041667" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

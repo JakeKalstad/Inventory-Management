@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7E2BD7B1-5D78-40A3-9456-84DA64AB3985}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SupplyDispense</RootNamespace>
+    <AssemblyName>SupplyDispense</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Controller\LoginController.cs" />
+    <Compile Include="Controller\MainMenuController.cs" />
+    <Compile Include="Core\SheetMap.cs" />
+    <Compile Include="Core\Spinner.cs" />
+    <Compile Include="Enum\Sheets.cs" />
+    <Compile Include="Enum\RuleResult.cs" />
+    <Compile Include="Extensions\KernelExtension.cs" />
+    <Compile Include="Extensions\ModelExtensions.cs" />
+    <Compile Include="Interface\IController.cs" />
+    <Compile Include="Interface\ILoginModel.cs" />
+    <Compile Include="Interface\IObservableModel.cs" />
+    <Compile Include="Interface\ISpinner.cs" />
+    <Compile Include="Interface\IWindow.cs" />
+    <Compile Include="Master.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Master.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\LoginModel.cs" />
+    <Compile Include="Model\MainMenuModel.cs" />
+    <Compile Include="Model\ModelBase.cs" />
+    <Compile Include="Modules\Core.cs" />
+    <Compile Include="Modules\LoginModule.cs" />
+    <Compile Include="Modules\MainMenuModule.cs" />
+    <Compile Include="Modules\SupplyKernel.cs" />
+    <Compile Include="React\react.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>react.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Runner.cs" />
+    <Compile Include="Service\Authenticate\Authenticate.cs" />
+    <Compile Include="Service\Core\ConnectionInfo.cs" />
+    <Compile Include="Service\Core\Printer.cs" />
+    <Compile Include="Service\Interface\IAuthenticate.cs" />
+    <Compile Include="Service\Interface\IConnectionInfo.cs" />
+    <Compile Include="Service\Interface\IPrinter.cs" />
+    <Compile Include="View\Control\ConnectionInfoControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Control\ConnectionInfoControl.Designer.cs">
+      <DependentUpon>ConnectionInfoControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Control\LoginControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Control\LoginControl.Designer.cs">
+      <DependentUpon>LoginControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Control\MainMenuControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Control\MainMenuControl.Designer.cs">
+      <DependentUpon>MainMenuControl.cs</DependentUpon>
+    </Compile>
+    <None Include="View\Control\ConfigurationOptions">
+      <SubType>UserControl</SubType>
+    </None>
+    <Compile Include="View\Control\UserControl1.Designer.cs">
+      <DependentUpon>ConfigurationOptions</DependentUpon>
+    </Compile>
+    <Compile Include="View\Interface\IContent.cs" />
+    <Compile Include="View\Interface\IForm.cs" />
+    <Compile Include="View\Interface\ISheet.cs" />
+    <Compile Include="View\Interface\ISupplyDispenseControl.cs" />
+    <Compile Include="View\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sheet\LoginSheet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Sheet\LoginSheet.Designer.cs">
+      <DependentUpon>LoginSheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sheet\MainMenuSheet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Sheet\MainMenuSheet.Designer.cs">
+      <DependentUpon>MainMenuSheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Startup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Startup.Designer.cs">
+      <DependentUpon>Startup.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Ninject">
+      <HintPath>..\EduEva\EduEva\bin\Debug\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.CoreEx, Version=1.0.2838.104, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Reactive, Version=1.0.2838.104, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\SupplyDispense.Model.LoginModel.datasource" />
+    <None Include="React\extend.ttinclude" />
+    <None Include="React\react.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>react.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Master.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Master.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Control\ConnectionInfoControl.resx">
+      <DependentUpon>ConnectionInfoControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Control\LoginControl.resx">
+      <DependentUpon>LoginControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Control\MainMenuControl.resx">
+      <DependentUpon>MainMenuControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Control\UserControl1.resx">
+      <DependentUpon>ConfigurationOptions</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Sheet\LoginSheet.resx">
+      <DependentUpon>LoginSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Sheet\MainMenuSheet.resx">
+      <DependentUpon>MainMenuSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Startup.resx">
+      <DependentUpon>Startup.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

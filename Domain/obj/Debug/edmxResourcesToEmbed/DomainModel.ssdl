@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="supplyModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.1" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="supplyModelStoreContainer">
+    <EntitySet Name="item" EntityType="supplyModel.Store.item" store:Type="Tables" Schema="supply" />
+    <EntitySet Name="itemlookup" EntityType="supplyModel.Store.itemlookup" store:Type="Tables" Schema="supply" />
+    <EntitySet Name="location" EntityType="supplyModel.Store.location" store:Type="Tables" Schema="supply" />
+    <EntitySet Name="restockhistory" EntityType="supplyModel.Store.restockhistory" store:Type="Tables" Schema="supply" />
+    <EntitySet Name="user" EntityType="supplyModel.Store.user" store:Type="Tables" Schema="supply" />
+    <EntitySet Name="usertype" EntityType="supplyModel.Store.usertype" store:Type="Tables" Schema="supply" />
+  </EntityContainer>
+  <EntityType Name="item">
+    <Key>
+      <PropertyRef Name="ItemPKey" />
+    </Key>
+    <Property Name="Description" Type="text" Nullable="false" />
+    <Property Name="Id" Type="text" Nullable="false" />
+    <Property Name="ItemPKey" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Quantity" Type="uint" Nullable="false" />
+    <Property Name="RestockPoint" Type="varchar" Nullable="false" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="itemlookup">
+    <Key>
+      <PropertyRef Name="LookUpPkey" />
+    </Key>
+    <Property Name="ItemKey" Type="uint" Nullable="false" />
+    <Property Name="LocationKey" Type="uint" Nullable="false" />
+    <Property Name="LookUpPkey" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="location">
+    <Key>
+      <PropertyRef Name="LocationPKey" />
+    </Key>
+    <Property Name="LocationPKey" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="text" Nullable="false" />
+  </EntityType>
+  <EntityType Name="restockhistory">
+    <Key>
+      <PropertyRef Name="Key" />
+    </Key>
+    <Property Name="Key" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="PointName" Type="varchar" Nullable="false" MaxLength="45" />
+    <Property Name="StockDate" Type="datetime" Nullable="false" />
+    <Property Name="UserKey" Type="uint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="PKey" />
+    </Key>
+    <Property Name="Id" Type="varchar" Nullable="false" MaxLength="45" />
+    <Property Name="Name" Type="text" Nullable="false" />
+    <Property Name="NeedsReset" Type="bool" Nullable="false" />
+    <Property Name="Password" Type="text" />
+    <Property Name="PKey" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserType" Type="uint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="usertype">
+    <Key>
+      <PropertyRef Name="PKey" />
+    </Key>
+    <Property Name="Display" Type="text" Nullable="false" />
+    <Property Name="Key" Type="uint" Nullable="false" />
+    <Property Name="PKey" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+  </EntityType>
+</Schema>

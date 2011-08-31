@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="supplyModelStoreContainer" CdmEntityContainer="supplyEntities">
+    <EntitySetMapping Name="items">
+      <EntityTypeMapping TypeName="supplyModel.item">
+        <MappingFragment StoreEntitySet="item">
+          <ScalarProperty Name="RestockPoint" ColumnName="RestockPoint" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ItemPKey" ColumnName="ItemPKey" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="itemlookups">
+      <EntityTypeMapping TypeName="supplyModel.itemlookup">
+        <MappingFragment StoreEntitySet="itemlookup">
+          <ScalarProperty Name="LookUpPkey" ColumnName="LookUpPkey" />
+          <ScalarProperty Name="LocationKey" ColumnName="LocationKey" />
+          <ScalarProperty Name="ItemKey" ColumnName="ItemKey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="locations">
+      <EntityTypeMapping TypeName="supplyModel.location">
+        <MappingFragment StoreEntitySet="location">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="LocationPKey" ColumnName="LocationPKey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="supplyModel.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="NeedsReset" ColumnName="NeedsReset" />
+          <ScalarProperty Name="UserType" ColumnName="UserType" />
+          <ScalarProperty Name="PKey" ColumnName="PKey" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usertypes">
+      <EntityTypeMapping TypeName="supplyModel.usertype">
+        <MappingFragment StoreEntitySet="usertype">
+          <ScalarProperty Name="PKey" ColumnName="PKey" />
+          <ScalarProperty Name="Key" ColumnName="Key" />
+          <ScalarProperty Name="Display" ColumnName="Display" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="restockhistories">
+      <EntityTypeMapping TypeName="supplyModel.restockhistory">
+        <MappingFragment StoreEntitySet="restockhistory">
+          <ScalarProperty Name="UserKey" ColumnName="UserKey" />
+          <ScalarProperty Name="StockDate" ColumnName="StockDate" />
+          <ScalarProperty Name="PointName" ColumnName="PointName" />
+          <ScalarProperty Name="Key" ColumnName="Key" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
